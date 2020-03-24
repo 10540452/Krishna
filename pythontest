@@ -16,13 +16,23 @@ class Shop:
         p=0
         for l,m in self.__basket.items():
             p+=m*shopping_basket[l]
-        return i
+        return p
     
 def sortP(shops):
     length=len(shops)
-    for i in range(length-1):
-        for j in range(length-1-i):
-            if shops[j].getDiscount() >shops[j+1].getDiscount():
+    for p in range(length-1):
+        for j in range(length-1-p):
+            if shops[j].getDiscount() > shops[j+1].getDiscount():
                 shops[j],shops[j+1]=shops[j+1],shops[j]
     return shops
     
+    
+    
+    b=Shop({'eggs':20})
+c=Shop({'eggs':20})
+d=Shop({'eggs':20})
+
+mySort=sortP([b,c,d])
+
+
+mySort[0].getBasket('eggs')

@@ -11,10 +11,18 @@ class Shop:
         if item not in self.__basket:
             return 0
         return self.__basket[item]
-         return self.__basket[item]
     
     def getDiscount(self):
         p=0
         for l,m in self.__basket.items():
-            i+=m*shopping_basket[l]
+            p+=m*shopping_basket[l]
         return i
+    
+def sortP(shops):
+    length=len(shops)
+    for i in range(length-1):
+        for j in range(length-1-i):
+            if shops[j].getDiscount() >shops[j+1].getDiscount():
+                shops[j],shops[j+1]=shops[j+1],shops[j]
+    return shops
+    

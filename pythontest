@@ -1,37 +1,27 @@
-shopping_basket = {'eggs':10,'rice':10,'flour':10}
+products_qty_buy = {'eggs':10,'rice':10,'flour':5}
 
-class Shop:
-    def __init__(self, basket={}):
-        self.__basket=basket
-    
-    def addBasket(self,item,qty):
-        self.__basket[item]=qty+self.getBasket(item)
-    
-   def getBasket(item,qty)
+products_price = {'eggs':3,'rice':5,'flour':2} 
+
+bill = 0
+
+def getBasket(item,qty):
     total = products_price[item] * qty
-    print('price of' + item + str(products_price[item])+ 'of' + str(qty) + ':' + str(total) )
+    print('Price of '+ str(products_price[item])+ ' ' + item + ' '  + ' * ' + str(qty) + ' : ' + str(total) )
 
-    
-    def getDiscount(self):
-        p=0
-        for l,m in self.__basket.items():
-            p = m-((shopping_basket[l] / 100 )* m )
-            float(p)
-        return p
-    
-def sortP(shops):
-    length=len(shops)
-    for p in range(length-1):
-        for j in range(length-1-p):
-            if shops[j].getDiscount() > shops[j+1].getDiscount():
-                shops[j],shops[j+1]=shops[j+1],shops[j]
-    return shops
-    
+    return total
 
-b=Shop({'eggs':20})
-c=Shop({'flour':30})
-d=Shop({'rice':20})
 
-mySort=sortP([b,c,d])
-mySort[1].getBasket(1)
-mySort[2].getDiscount()
+def getDiscount(bill , coupon):
+    if 'egg20' or'flour20' or 'rice20' in coupon.keys():
+        bill = bill -((20 / 100) * bill) 
+    
+    return bill
+
+for key,value in products_qty_buy.items():
+    bill += getBasket(key,value)
+
+coupon = {'egg20','flour20','rice20'}
+
+bill = getDiscount(bill,coupon)
+print('Total bill ='+str(bill))
+

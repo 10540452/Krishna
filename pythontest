@@ -1,4 +1,4 @@
-shopping_basket = {'eggs':2,'rice':5,'flour':3}
+shopping_basket = {'eggs':10,'rice':10,'flour':10}
 
 class Shop:
     def __init__(self, basket={}):
@@ -15,7 +15,8 @@ class Shop:
     def getDiscount(self):
         p=0
         for l,m in self.__basket.items():
-            p+=m*shopping_basket[l]
+            p = m-((shopping_basket[l] / 100 )* m )
+            float(p)
         return p
     
 def sortP(shops):
@@ -26,13 +27,11 @@ def sortP(shops):
                 shops[j],shops[j+1]=shops[j+1],shops[j]
     return shops
     
-    
-    
-    b=Shop({'eggs':20})
-c=Shop({'eggs':20})
-d=Shop({'eggs':20})
+
+b=Shop({'eggs':20})
+c=Shop({'flour':30})
+d=Shop({'rice':20})
 
 mySort=sortP([b,c,d])
-
-
-mySort[0].getBasket('eggs')
+mySort[1].getBasket(1)
+mySort[2].getDiscount()

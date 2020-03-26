@@ -1,6 +1,8 @@
 products_qty_buy = {'eggs':10,'rice':10,'flour':5}
 
-products_price = {'eggs':3,'rice':5,'flour':2} 
+products_price = {'eggs':3,'rice':5,'flour':2}
+
+coupon = {'egg20','flour20','rice20'}
 
 bill = 0
 
@@ -14,14 +16,16 @@ def getBasket(item,qty):
 def getDiscount(bill , coupon):
     if 'egg20' or'flour20' or 'rice20' in coupon.keys():
         bill = bill -((20 / 100) * bill) 
-    
+  
     return bill
 
 for key,value in products_qty_buy.items():
     bill += getBasket(key,value)
 
-coupon = {'egg20','flour20','rice20'}
 
 bill = getDiscount(bill,coupon)
-print('Total bill ='+str(bill))
+print('Total bill ='+str(bill)+'\n')
 
+def sortedlist():
+        for key ,value in sorted(products_price.items(),key=lambda item: item[1]):
+            print("%s: %s" % (key, value)

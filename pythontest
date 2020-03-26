@@ -7,10 +7,10 @@ class Shop:
     def addBasket(self,item,qty):
         self.__basket[item]=qty+self.getBasket(item)
     
-    def getBasket(self,item):
-        if item not in self.__basket:
-            return 0
-        return self.__basket[item]
+   def getBasket(item,qty)
+    total = products_price[item] * qty
+    print('price of' + item + str(products_price[item])+ 'of' + str(qty) + ':' + str(total) )
+
     
     def getDiscount(self):
         p=0
